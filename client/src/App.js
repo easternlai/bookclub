@@ -5,6 +5,10 @@ import store from './store';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
+import Navbar from './components/layout/Navbar';
+import Dashboard from './components/dashboard/Dashboard';
+
+import PrivateRoute from './components/routing/PrivateRoute';
 
 
 function App() {
@@ -13,10 +17,12 @@ function App() {
     <Provider store={store}>
     <Router>
     <Fragment>
+        <Navbar />
         <Alert />
         <Switch>
           <Route exact path="/register" component={Register} />
           <Route exact path='/login' component={Login} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
         </Switch>
       </Fragment>
     </Router>
