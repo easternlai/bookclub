@@ -20,6 +20,9 @@ const BookSchema = new Schema({
   author: {
     type: String,
   },
+  image: {
+    type: String
+  },
   likes: [
     {
       user: {

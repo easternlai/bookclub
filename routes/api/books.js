@@ -15,6 +15,7 @@ router.post("/", auth, async (req, res)=> {
         const newBook = new Book({
             title: req.body.title,
             author: req.body.author,
+            image: req.body.image,
             name: user.name,
             user: req.user.id
         });
@@ -30,7 +31,6 @@ router.post("/", auth, async (req, res)=> {
 
 router.get("/", auth, async (req, res)=> {
     try {
-        console.log("test");
         const books = await Book.find().sort({ date: -1 });
         res.json(books);
     } catch (err) {
